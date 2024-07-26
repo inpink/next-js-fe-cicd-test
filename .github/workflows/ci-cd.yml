@@ -32,10 +32,6 @@ jobs:
         working-directory: ./card-capture
         run: npm install
 
-      - name: Ensure ESLint config dependencies are installed
-        working-directory: ./card-capture
-        run: npm install eslint-config-prettier
-
       - name: Lint code
         working-directory: ./card-capture
         run: npm run lint
