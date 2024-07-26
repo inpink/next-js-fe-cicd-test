@@ -34,7 +34,7 @@ jobs:
 
       - name: Lint code
         working-directory: ./card-capture
-        run: npm run lint
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx
 
       - name: Run tests
         working-directory: ./card-capture
