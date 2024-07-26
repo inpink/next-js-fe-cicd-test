@@ -20,6 +20,7 @@ jobs:
         run: ls -al
 
       - name: Verify package.json exists
+        working-directory: ./card-capture
         run: test -f package.json || { echo "package.json not found"; exit 1; }
 
       - name: Set up Node.js
@@ -28,15 +29,19 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
+        working-directory: ./card-capture
         run: npm install
 
       - name: Lint code
+        working-directory: ./card-capture
         run: npm run lint
 
       - name: Run tests
+        working-directory: ./card-capture
         run: npm test
 
       - name: Build project
+        working-directory: ./card-capture
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
         run: npm run build
@@ -54,6 +59,7 @@ jobs:
         run: ls -al
 
       - name: Verify package.json exists
+        working-directory: ./card-capture
         run: test -f package.json || { echo "package.json not found"; exit 1; }
 
       - name: Set up Node.js
@@ -62,9 +68,11 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
+        working-directory: ./card-capture
         run: npm install
 
       - name: Build project
+        working-directory: ./card-capture
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
         run: npm run build
