@@ -32,9 +32,7 @@ jobs:
         working-directory: ./card-capture
         run: npm install
 
-      - name: Lint code
-        working-directory: ./card-capture
-        run: npx eslint . --ext .js,.jsx,.ts,.tsx
+      # Lint step removed as per user's request
 
       - name: Run tests
         working-directory: ./card-capture
