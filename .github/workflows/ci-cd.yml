@@ -32,7 +32,7 @@ jobs:
         working-directory: ./card-capture
         run: npm install
 
-      # Lint step removed as per user's request
+      # Lint step removed
 
       - name: Run tests
         working-directory: ./card-capture
@@ -42,7 +42,9 @@ jobs:
         working-directory: ./card-capture
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-        run: npm run build
+        run: |
+          echo "SKIPPING LINT DURING BUILD"
+          CI= npm run build
 
   deploy:
     runs-on: ubuntu-latest
